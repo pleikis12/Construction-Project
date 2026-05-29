@@ -6,7 +6,7 @@
 }
 
 /* =========================
-   CONTAINER SYSTEM (YOU ALREADY HAVE THIS)
+   CONTAINER SYSTEM 
 ========================= */
 @utility container {
   width: 100%;
@@ -17,10 +17,10 @@
 }
 
 /* =========================
-   🏗 GLOBAL ARCHITECTURAL GRID FOUNDATION
+   GRID FOUNDATION
 ========================= */
 
-/* Optional: global page rhythm control */
+/* global page rhythm control */
 :root {
   --grid-columns: 12;
   --grid-gap: 1.5rem;
@@ -35,13 +35,13 @@
   --space-6: 4rem;     /* 64px */
 }
 
-/* Ensures full layout consistency */
+/* full layout consistency */
 html, body {
   width: 100%;
   overflow-x: clip;
 }
 
-/* Optional debug tool (turn on when needed) */
+/* debug tool */
 .debug-grid {
   background-image: 
     linear-gradient(to right, rgba(255,0,0,0.05) 1px, transparent 1px);

@@ -1,5 +1,5 @@
 <template>
-  <section class="relative min-h-screen flex items-center overflow-x-clip pb-[var(--space-6)]">
+  <section class="relative min-h-svh pt-28 pb-20 overflow-hidden">
 
     <!-- Background -->
     <div class="absolute inset-0">
@@ -19,7 +19,7 @@
         <div class="col-span-12 lg:col-span-7">
 
           <!-- Since 2022 -->
-          <div class="font-condensed flex items-center gap-3 text-[#E5D8C3] tracking-[1px] md:tracking-[4px] text-[11px] md:text-sm mb-[var(--space-2)]">
+          <div class="font-condensed flex items-center gap-3 text-[#E5D8C3] tracking-[1px] md:tracking-[4px] text-[11px] md:text-sm mb-(--space-2)">
 
             <span class="w-10 md:w-16 h-px bg-[#E5D8C3]/80 shrink-0"></span>
 
@@ -40,13 +40,13 @@
           </h1>
 
           <!-- DESCRIPTION -->
-          <p class="font-condensed max-w-2xl text-[1.1rem] md:text-xl text-[#E5E5E5] mt-8 mb-[var(--space-5)] leading-relaxed">
+          <p class="font-condensed max-w-2xl text-[1.1rem] md:text-xl text-[#E5E5E5] mt-8 mb-(--space-5) leading-relaxed">
             UAB Vestar Construction delivers landmark commercial, residential, and civic 
             projects across Lithuania with precision, scale, and architectural clarity.
           </p>
 
           <!-- STATS -->
-          <StatsBar class="mb-[var(--space-3)]" />
+          <StatsBar class="mb-(--space-3)" />
 
           <!-- BUTTONS -->
           <div class="flex flex-wrap gap-4">

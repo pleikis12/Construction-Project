@@ -129,17 +129,10 @@ onMounted(async () => {
   color: rgba(212, 197, 176, 0.75);
 }
 
-/* TABLET */
+/* PHONE */
 @media (max-width: 768px) {
   .stat-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-/* PHONE */
-@media (max-width: 420px) {
-  .stat-grid {
-    grid-template-columns: 1fr;
   }
 
   .stat-card {
@@ -147,11 +140,29 @@ onMounted(async () => {
   }
 
   .stat-number {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .stat-label {
     font-size: 0.55rem;
+  }
+}
+
+/* Tiny Phones*/
+@media (max-width: 380px) {
+  .stat-grid {
+    grid-template-columns: 1fr;
+  }
+  .stat-card {
+    padding: 0.9rem 1rem;
+  }
+
+  .stat-number {
+    font-size: 1rem;
+  }
+
+  .stat-label {
+    font-size: 0.45rem;
   }
 }
 </style>
