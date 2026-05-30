@@ -83,6 +83,7 @@
       <div
         v-for="project in filtered"
         :key="project.id"
+        @click="router.push(`/projects/${project.slug}`)"
         class="group bg-[#0a0a0a] border border-white/10 overflow-hidden transition-all duration-300 hover:border-[#00A8E8]/30"
       >
 
@@ -143,8 +144,11 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { MapPin } from 'lucide-vue-next'
+import { useRouter } from 'vue-router'
 
-const CITIES = ['All Cities', 'Klaipeda', 'Palanga', 'Darbėnai', 'Gargždai']
+const router = useRouter()
+
+const CITIES = ['All Cities', 'Klaipeda', 'Palanga', 'Darbėnai', 'Gargždai', 'England']
 const STATUSES = ['All', 'Completed', 'In Progress']
 
 const activeCity = ref('All Cities')
@@ -153,6 +157,7 @@ const activeStatus = ref('All')
 const projects = ref([
   {
     id: 1,
+    slug: 'melnerage-housing-block',
     title: 'Melnerage Housing Block',
     city: 'Klaipeda',
     status: 'Completed',
@@ -160,6 +165,7 @@ const projects = ref([
   },
   {
     id: 2,
+    slug: 'kepykla-facility',
     title: 'Kepykla Facility',
     city: 'Klaipeda',
     status: 'Completed',
@@ -167,6 +173,7 @@ const projects = ref([
   },
   {
     id: 3,
+    slug: 'saulės-butai-complex',
     title: 'Saulės Butai Complex',
     city: 'Klaipeda',
     status: 'In Progress',
@@ -174,6 +181,7 @@ const projects = ref([
   },
   {
     id: 4,
+    slug: 'kunigiskes-renovation',
     title: 'Kunigiskes Renovation',
     city: 'Palanga',
     status: 'Completed',
@@ -181,6 +189,7 @@ const projects = ref([
   },
   {
     id: 5,
+    slug: 'kunigiskes-vaivorikstes-g',
     title: 'Kunigiskes Vaivorikstes g',
     city: 'Palanga',
     status: 'Completed',
@@ -188,11 +197,60 @@ const projects = ref([
   },
   {
     id: 6,
-    title: 'Gargždai Civic Center',
-    city: 'Gargždai',
-    status: 'In Progress',
-    image: '/src/assets/projects/Gardzdai/gardzdai1.jpg'
+    slug: 'vilmiskes',
+    title: 'Vilmiskes',
+    city: 'Palanga',
+    status: 'Completed',
+    image: '/src/assets/projects/Palanga/vilmiskes/Vilmiskes1.jpg'
   },
+  {
+    id: 7,
+    slug: 'pasakele-darzelis',
+    title: 'Pasakele Darzelis',
+    city: 'Gargždai',
+    status: 'Completed',
+    image: '/src/assets/projects/Gargzdai/pasakele/Darzelis2.jpg'
+  },
+  {
+    id: 9,
+    slug: 'english-housing',
+    title: 'English Housing',
+    city: 'England',
+    status: 'Completed',
+    image: '/src/assets/projects/England/english-housing/English1.jpg'
+  },
+  {
+    id: 10,
+    slug: 'epping-nightclub',
+    title: 'Epping Nightclub',
+    city: 'Palanga',
+    status: 'Completed',
+    image: '/src/assets/projects/England/epping-nightclub/Nightclub1.jpg'
+  },
+  {
+    id: 11,
+    slug: 'slough-penthouse',
+    title: 'Slough Penthouse',
+    city: 'England',
+    status: 'Completed',
+    image: '/src/assets/projects/England/slough-penthouse/Slough1.jpg'
+  },
+  {
+    id: 12,
+    slug: 'village-house',
+    title: 'Village House',
+    city: 'England',
+    status: 'Completed',
+    image: '/src/assets/projects/England/village-house/Village1.jpg'
+  },
+  {
+    id: 13,
+    slug: 'palangos-gatve',
+    title: 'Palangos Gatve',
+    city: 'Darbėnai',
+    status: 'In Progress',
+    image: '/src/assets/projects/Darbenai/palangos-gatve/darbenai5.jpg'
+  }
 ])
 
 const filtered = computed(() => {

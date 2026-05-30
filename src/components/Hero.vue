@@ -1,5 +1,5 @@
 <template>
-  <section class="relative min-h-svh pt-28 pb-20 overflow-hidden">
+  <section id="home" class="relative min-h-svh pt-28 pb-20 overflow-hidden">
 
     <!-- Background -->
     <div class="absolute inset-0">
