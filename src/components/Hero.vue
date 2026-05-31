@@ -24,7 +24,7 @@
             <span class="w-10 md:w-16 h-px bg-[#E5D8C3]/80 shrink-0"></span>
 
             <span class="[text-shadow:0_1px_2px_rgba(0,0,0,0.8)]">
-              SINCE 2022 • EST. KLAIPĖDA
+              NUO 2022 M. • ĮKURTA KLAIPĖDOJE
             </span>
 
           </div>
@@ -34,15 +34,15 @@
             class="font-condensed uppercase text-white leading-[0.9]"
             style="font-weight: 900; font-size: clamp(3rem, 8.5vw, 8.5rem); letter-spacing: -0.02em;"
           >
-            IMAGINED<br>
-            <span class="text-[#38cdf5]">BY OTHERS</span><br>
-            BUILT BY US
+            NUO PAMATU<br>
+            <span class="text-[#38cdf5]">IKI RAKTO</span><br>
+            <span class="whitespace-nowrap">STATYBOS DARBAI</span>
           </h1>
 
           <!-- DESCRIPTION -->
           <p class="font-condensed max-w-2xl text-[1.1rem] md:text-xl text-[#E5E5E5] mt-8 mb-(--space-5) leading-relaxed">
-            UAB Vestar Construction delivers landmark commercial, residential, and civic 
-            projects across Lithuania with precision, scale, and architectural clarity.
+            UAB „Vestar Construction“ įgyvendina tikslius, mastelio ir architektūrinio aiškumo principus žymius komercinius, 
+            gyvenamuosius ir visuomeninius projektus apink Klaipėdos, Kretingos ir Palangos Rajonus.
           </p>
 
           <!-- STATS -->

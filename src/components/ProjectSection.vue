@@ -8,7 +8,7 @@
         <div class="flex items-center gap-3 mb-3">
           <div class="w-8 h-px bg-[#00A8E8]" />
           <span class="font-condensed text-xs tracking-widest uppercase text-[#00A8E8]">
-            Our Work
+            MUSU DARBAI
           </span>
         </div>
 
@@ -16,12 +16,12 @@
           class="uppercase leading-none text-white"
           style="font-family:'Barlow Condensed', sans-serif; font-weight:800; font-size:clamp(2rem,5vw,3.2rem);"
         >
-          Featured Projects
+          Visi Musu Projektai
         </h2>
       </div>
 
       <p class="text-white/60 max-w-sm text-sm leading-relaxed">
-        Select a project to explore its full timeline — from site planning through to completion.
+        Pasirinkite projektą, kad išbandytumėte jo pilną laiko juostą — nuo vietos planavimo iki užbaigimo.
       </p>
 
     </div>
@@ -105,13 +105,13 @@
           <div
             class="absolute top-3 right-3 px-3 py-1 text-[10px] font-mono uppercase tracking-[0.25em]
                    border backdrop-blur-md shadow-md flex items-center gap-2"
-            :class="project.status === 'Completed'
+            :class="project.status === 'Baigtas'
               ? 'bg-green-500/15 text-green-300 border-green-400/30 shadow-green-500/20'
               : 'bg-yellow-500/15 text-yellow-200 border-yellow-300/30 shadow-yellow-500/20'"
           >
             <span
               class="w-1.5 h-1.5 rounded-full"
-              :class="project.status === 'Completed'
+              :class="project.status === 'Baigtas'
                 ? 'bg-green-400'
                 : 'bg-yellow-300'"
             ></span>
@@ -148,8 +148,8 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
-const CITIES = ['All Cities', 'Klaipeda', 'Palanga', 'Darbėnai', 'Gargždai', 'England']
-const STATUSES = ['All', 'Completed', 'In Progress']
+const CITIES = ['All Cities', 'Klaipeda', 'Palanga', 'Darbėnai', 'Gargždai', 'Anglija']
+const STATUSES = ['All', 'Baigtas', 'Vykdomas']
 
 const activeCity = ref('All Cities')
 const activeStatus = ref('All')
@@ -158,97 +158,97 @@ const projects = ref([
   {
     id: 1,
     slug: 'melnerage-housing-block',
-    title: 'Melnerage Housing Block',
+    title: 'Klaipeda Melnerage, Namo Statyba',
     city: 'Klaipeda',
-    status: 'Completed',
+    status: 'Baigtas',
     image: '/src/assets/projects/Klaipeda/melnerage/Melnarage1.jpg'
   },
   {
     id: 2,
     slug: 'kepykla-facility',
-    title: 'Kepykla Facility',
+    title: 'Klaipeda Kepyklos, Įrengimas',
     city: 'Klaipeda',
-    status: 'Completed',
+    status: 'Baigtas',
     image: '/src/assets/projects/Klaipeda/kepykla/Kepykla1.jpg'
   },
   {
     id: 3,
     slug: 'saulės-butai-complex',
-    title: 'Saulės Butai Complex',
+    title: 'Klaipeda Saulės Butai, Įrengimas',
     city: 'Klaipeda',
-    status: 'In Progress',
+    status: 'Vykdomas',
     image: '/src/assets/projects/Klaipeda/saules-butai/2.jpg'
   },
   {
     id: 4,
     slug: 'kunigiskes-renovation',
-    title: 'Kunigiskes Renovation',
+    title: 'Kunigiskes Renovacija',
     city: 'Palanga',
-    status: 'Completed',
+    status: 'Baigtas',
     image: '/src/assets/projects/Palanga/kunigiskes-renovacija/Kunigiskes11.jpg'
   },
   {
     id: 5,
     slug: 'kunigiskes-vaivorikstes-g',
-    title: 'Kunigiskes Vaivorikstes g',
+    title: 'Kunigiskes Vaivorikstes g, Namo Statyba',
     city: 'Palanga',
-    status: 'Completed',
+    status: 'Baigtas',
     image: '/src/assets/projects/Palanga/kunigiskes-vaivorikstes/Vaivorikstes19.jpg'
   },
   {
     id: 6,
     slug: 'vilmiskes',
-    title: 'Vilmiskes',
+    title: 'Vilmiskes, Namo Statyba',
     city: 'Palanga',
-    status: 'Completed',
+    status: 'Baigtas',
     image: '/src/assets/projects/Palanga/vilmiskes/Vilmiskes1.jpg'
   },
   {
     id: 7,
     slug: 'pasakele-darzelis',
-    title: 'Pasakele Darzelis',
+    title: 'Pasakele Darzelis, Statyba',
     city: 'Gargždai',
-    status: 'Completed',
+    status: 'Baigtas',
     image: '/src/assets/projects/Gargzdai/pasakele/Darzelis2.jpg'
   },
   {
     id: 9,
     slug: 'english-housing',
-    title: 'English Housing',
-    city: 'England',
-    status: 'Completed',
+    title: 'Anglijos Namai, Namo Statyba',
+    city: 'Anglija',
+    status: 'Baigtas',
     image: '/src/assets/projects/England/english-housing/English1.jpg'
   },
   {
     id: 10,
     slug: 'epping-nightclub',
-    title: 'Epping Nightclub',
-    city: 'Palanga',
-    status: 'Completed',
+    title: 'Eppingo Naktinis Klubas, Statyba',
+    city: 'Anglija',
+    status: 'Baigtas',
     image: '/src/assets/projects/England/epping-nightclub/Nightclub1.jpg'
   },
   {
     id: 11,
     slug: 'slough-penthouse',
-    title: 'Slough Penthouse',
-    city: 'England',
-    status: 'Completed',
+    title: 'Slough Penthausas, Butų Statyba',
+    city: 'Anglija',
+    status: 'Baigtas',
     image: '/src/assets/projects/England/slough-penthouse/Slough1.jpg'
   },
   {
     id: 12,
     slug: 'village-house',
-    title: 'Village House',
-    city: 'England',
-    status: 'Completed',
+    title: 'Anglijos Kaimo Namai, Namo Statyba',
+    city: 'Anglija',
+    status: 'Baigtas',
     image: '/src/assets/projects/England/village-house/Village1.jpg'
   },
   {
     id: 13,
     slug: 'palangos-gatve',
-    title: 'Palangos Gatve',
+    title: 'Darbėnai Palangos g, Namo Statyba',
     city: 'Darbėnai',
-    status: 'In Progress',
+    status: 'Vykdomas',
     image: '/src/assets/projects/Darbenai/palangos-gatve/darbenai5.jpg'
   }
 ])

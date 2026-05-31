@@ -28,10 +28,10 @@ interface Stat {
 }
 
 const stats = ref<Stat[]>([
-  { id: 1, label: 'YEARS ACTIVE', value: 3, suffix: '' },
-  { id: 2, label: 'PROJECTS BUILT', value: 12, suffix: '+' },
-  { id: 3, label: 'CITIES', value: 2, suffix: '' },
-  { id: 4, label: 'CONSTRUCTED', value: '2.8', suffix: 'M €' }
+  { id: 1, label: 'AKTYVŪS METAI', value: 3, suffix: '' },
+  { id: 2, label: 'PASTATYTI PROJEKTAI', value: 12, suffix: '+' },
+  { id: 3, label: 'MIESTAI', value: 5, suffix: '' },
+  { id: 4, label: 'PASTATYTA', value: '2.8', suffix: 'M €' }
 ])
 
 const formattedStats = computed(() =>
@@ -46,7 +46,7 @@ onMounted(async () => {
     const res = await fetch('/api/projects/count')
     const data = await res.json()
 
-    const target = stats.value.find(s => s.label === 'PROJECTS BUILT')
+    const target = stats.value.find(s => s.label === 'PASTATYTI PROJEKTAI')
     if (target) target.value = data.count || 12
   } catch (e) {
     console.error(e)
