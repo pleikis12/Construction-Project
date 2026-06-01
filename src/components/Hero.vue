@@ -7,7 +7,7 @@
         src="../assets/branding/hero/firefly.jpg"
         class="w-full h-full object-cover object-center"
       />
-      <div class="absolute inset-0 bg-linear-to-t from-black/95 via-black/70 to-black/60"></div>
+      <div class="absolute inset-0 bg-linear-to-t from-black/95 via-black/60 to-to-[#0a0a0a]"></div>
     </div>
 
     <!-- CONTENT GRID LAYER -->
@@ -75,6 +75,32 @@
     </div>
 
   </section>
+
+  <!-- HERO EXIT TRANSITION -->
+<!-- CONTINUATION LAYER (NOT SEPARATE VISUAL BLOCK) -->
+<div class="relative bg-[#0a0a0a]">
+
+  <!-- fade from hero into page background -->
+  <div class="h-24 md:h-32 bg-gradient-to-b from-black/0 to-[#0a0a0a]"></div>
+
+  <!-- structural divider -->
+  <div class="container">
+    <div class="h-px bg-white/10 w-full"></div>
+  </div>
+
+  <!-- label -->
+  <div class="container pt-6 pb-10">
+    <p class="text-white/30 uppercase tracking-[0.35em] text-xs">
+      APIE MUS • PROCESAS • PATIRTIS
+    </p>
+  </div>
+
+</div>
+
+<!-- ABOUT -->
+<AboutSection />
+
+
 </template>
 
 <script setup>

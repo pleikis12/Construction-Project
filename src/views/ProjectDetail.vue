@@ -1,70 +1,280 @@
 <template>
-  <section class="min-h-screen bg-[#0a0a0a] text-white py-32">
-    
-    <div class="container">
+  <section
+    v-if="project"
+    class="min-h-screen bg-[#0a0a0a] text-white"
+  >
 
-      <!-- HEADER -->
-      <div class="mb-12">
-        <div class="flex items-center gap-3 mb-3">
+    <!-- HERO -->
+    <section class="relative h-[65vh] overflow-hidden">
+
+      <img
+        :src="project.gallery[0]"
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/60 to-black/20"></div>
+
+      <div class="relative z-10 container h-full flex flex-col justify-end pb-16">
+
+        <div
+          class="inline-flex items-center gap-2 mb-4 text-xs tracking-[0.25em] uppercase"
+          :class="project.status === 'Baigtas' ? 'text-green-400' : 'text-yellow-300'"
+        >
+          <span
+            class="w-2 h-2 rounded-full"
+            :class="project.status === 'Baigtas' ? 'bg-green-400' : 'bg-yellow-300'"
+          ></span>
+
+          {{ project.status }}
+        </div>
+
+        <h1
+          class="font-condensed uppercase leading-none"
+          style="font-weight: 800; font-size: clamp(3rem, 7vw, 6rem);"
+        >
+          {{ project.title }}
+        </h1>
+
+        <p class="mt-4 text-white/70 uppercase tracking-[0.25em]">
+          {{ project.city }}
+        </p>
+
+      </div>
+    </section>
+
+    <!-- INFO -->
+    <section class="container py-16">
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+        <div class="border border-white/10 bg-white/[0.03] p-5">
+          <p class="text-white/40 text-xs uppercase tracking-widest">Status</p>
+          <p class="mt-2 font-semibold">{{ project.status }}</p>
+        </div>
+
+        <div class="border border-white/10 bg-white/[0.03] p-5">
+          <p class="text-white/40 text-xs uppercase tracking-widest">Miestas</p>
+          <p class="mt-2 font-semibold">{{ project.city }}</p>
+        </div>
+
+        <div class="border border-white/10 bg-white/[0.03] p-5">
+          <p class="text-white/40 text-xs uppercase tracking-widest">Metai</p>
+          <p class="mt-2 font-semibold">{{ project.year }}</p>
+        </div>
+
+        <div class="border border-white/10 bg-white/[0.03] p-5">
+          <p class="text-white/40 text-xs uppercase tracking-widest">Nuotraukos</p>
+          <p class="mt-2 font-semibold">{{ project.gallery.length }}</p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- DESCRIPTION -->
+    <section v-if="project.description" class="container pb-16">
+
+      <div class="max-w-4xl">
+
+        <div class="flex items-center gap-3 mb-4">
           <div class="w-8 h-px bg-[#00A8E8]" />
-          <span class="font-condensed text-xs tracking-[0.25em] uppercase text-[#00A8E8]">
-            Projektu Archivas
+          <span class="text-[#00A8E8] uppercase tracking-[0.25em] text-xs">
+            Projekto Aprašymas
           </span>
         </div>
 
-        <h1 class="font-condensed uppercase text-white"
-            style="font-weight:800; font-size:clamp(2rem,5vw,3.5rem);">
-          {{ project?.title }}
-        </h1>
+        <p class="text-white/70 leading-relaxed text-lg">
+          {{ project.description }}
+        </p>
 
-        <p class="text-white/50 text-sm mt-2 uppercase tracking-widest">
-          {{ project?.city }}
-        </p>
-        <p class="text-[#00A8E8] text-lg font-bold mt-2 uppercase tracking-widest">
-          {{ project?.status }}
-        </p>
-        <p class="text-white/50 text-sm mt-2 uppercase tracking-widest">
-          {{ project?.year }}
-        </p>
       </div>
 
-      <!-- GALLERY GRID -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    </section>
+
+    <!-- GALLERY -->
+    <section class="container pb-20">
+
+      <div class="columns-1 md:columns-2 xl:columns-3 gap-4">
 
         <div
-          v-for="img in project?.gallery"
+          v-for="(img, index) in images"
           :key="img"
-          class="relative overflow-hidden border border-white/10 bg-black"
+          class="mb-4 break-inside-avoid overflow-hidden bg-black group cursor-zoom-in"
+          @click="openImage(index)"
         >
+
           <img
             :src="img"
-            class="w-full h-full object-cover aspect-4/3 transition-transform duration-500 hover:scale-105"
+            class="w-full h-auto block object-cover
+                  transition-transform duration-700
+                  group-hover:scale-105"
+            loading="lazy"
           />
 
-          <!-- INSPECTION OVERLAY -->
-          <div class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-black/20"></div>
         </div>
 
       </div>
 
-      <!-- BACK BUTTON -->
-      <div class="mt-12">
-        <button
-          @click="$router.push('/')"
-          class="text-[#00A8E8] font-mono text-xs tracking-[0.25em] uppercase hover:text-white transition"
-        >
-          ← Atgal į Visus Projektus
-        </button>
+        
+
+      <!-- LIGHTBOX -->
+      <div
+        v-if="activeIndex !== null"
+        class="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
+        @click="closeImage"
+        @touchstart="onTouchStart"
+        @touchend="onTouchEnd"
+      >
+
+        <!-- WRAPPER -->
+        <div class="relative flex items-center justify-center">
+
+          <!-- IMAGE -->
+          <img
+            :src="activeImage"
+            class="max-w-[85vw] max-h-[85vh] object-contain select-none transition-all duration-300"
+          />
+
+          <!-- COUNTER -->
+          <div class="absolute top-5 left-1/2 -translate-x-1/2 text-white/70 text-xs tracking-[0.2em] uppercase">
+            {{ activeIndex + 1 }} / {{ images.length }}
+          </div>
+
+          <!-- CLOSE -->
+          <button
+            class="absolute top-5 right-5 text-white text-2xl hover:text-[#00A8E8]"
+            @click.stop="closeImage"
+          >
+            ✕
+          </button>
+
+          <!-- PREV -->
+          <button
+            class="absolute left-[-50px] top-1/2 -translate-y-1/2
+                   text-white text-6xl hover:text-[#00A8E8]
+                   transition"
+            @click.stop="prevImage"
+          >
+            ‹
+          </button>
+
+          <!-- NEXT -->
+          <button
+            class="absolute right-[-50px] top-1/2 -translate-y-1/2
+                   text-white text-6xl hover:text-[#00A8E8]
+                   transition"
+            @click.stop="nextImage"
+          >
+            ›
+          </button>
+
+        </div>
       </div>
 
-    </div>
+    </section>
 
+    <!-- BACK -->
+    <section class="container pb-24">
+
+      <button
+        @click="$router.push('/')"
+        class="border border-[#00A8E8] px-6 py-3 uppercase tracking-[0.25em] text-xs text-[#00A8E8]
+               hover:bg-[#00A8E8] hover:text-black transition"
+      >
+        ← Atgal į projektus
+      </button>
+
+    </section>
+
+  </section>
+
+  <section
+    v-else
+    class="min-h-screen bg-[#0a0a0a] flex items-center justify-center text-white"
+  >
+    Projektas nerastas
   </section>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import { useRoute } from 'vue-router'
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
+
+
+const route = useRoute()
+
+const activeIndex = ref<number | null>(null)
+
+const project = computed(() => {
+  const slug = String(route.params.slug)
+  return projects.find(p => p.slug === slug)
+})
+
+const images = computed(() => {
+  return project.value ? project.value.gallery.slice(1) : []
+})
+
+const activeImage = computed(() => {
+  if (activeIndex.value === null) return undefined
+  return images.value[activeIndex.value]
+})
+
+const openImage = (index: number) => {
+  activeIndex.value = index
+}
+
+const closeImage = () => {
+  activeIndex.value = null
+}
+
+const nextImage = () => {
+  if (activeIndex.value === null) return
+  activeIndex.value = (activeIndex.value + 1) % images.value.length
+}
+
+const prevImage = () => {
+  if (activeIndex.value === null) return
+  activeIndex.value =
+    (activeIndex.value - 1 + images.value.length) % images.value.length
+}
+
+// keyboard
+const handleKey = (e: KeyboardEvent) => {
+  if (activeIndex.value === null) return
+
+  if (e.key === 'Escape') closeImage()
+  if (e.key === 'ArrowRight') nextImage()
+  if (e.key === 'ArrowLeft') prevImage()
+}
+
+// swipe
+let touchStartX = 0
+
+const onTouchStart = (e: TouchEvent) => {
+  const touch = e.changedTouches?.[0]
+  if (!touch) return
+  touchStartX = touch.screenX
+}
+
+const onTouchEnd = (e: TouchEvent) => {
+  const touch = e.changedTouches?.[0]
+  if (!touch) return
+
+  const diff = touch.screenX - touchStartX
+
+  if (Math.abs(diff) < 50) return
+
+  if (diff > 0) prevImage()
+  else nextImage()
+}
+
+onMounted(() => {
+  window.addEventListener('keydown', handleKey)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('keydown', handleKey)
+})
 
 
 import melnerage1 from '../assets/projects/Klaipeda/melnerage/Melnarage1.jpg'
@@ -182,9 +392,7 @@ import Darbenai6 from '../assets/projects/Darbenai/palangos-gatve/Darbenai6.jpg'
 import Darbenai7 from '../assets/projects/Darbenai/palangos-gatve/Darbenai7.jpg'
 import Darbenai8 from '../assets/projects/Darbenai/palangos-gatve/Darbenai8.jpg'
 import Darbenai9 from '../assets/projects/Darbenai/palangos-gatve/Darbenai9.jpg'
-import Darbenai10 from '../assets/projects/Darbenai/palangos-gatve/Darbenai10.jpg'
-
-const route = useRoute()  
+import Darbenai10 from '../assets/projects/Darbenai/palangos-gatve/Darbenai10.jpg'  
 
 const projects = [
   {
@@ -193,6 +401,12 @@ const projects = [
     status: 'Baigtas',
     city: 'Klaipeda, Lietuva',
     year: 2023,
+    duration: '8 Months',
+    scope: 'Residential Renovation',
+    area: '1,200 m²',
+    description:
+    'The Melnerage Housing Block project included structural repairs, façade upgrades, interior fit-out works, and infrastructure improvements.',
+    heroImage: melnerage1,
     gallery: [melnerage1, melnerage2, melnerage3, melnerage4]
   },
   {
@@ -201,6 +415,12 @@ const projects = [
     status: 'Baigtas',
     city: 'Klaipeda, Lietuva',
     year: 2022,
+    duration: '12 Months',
+    scope: 'Commercial Development',
+    area: '2,500 m²',
+    description:
+    'The Kepykla Facility project encompassed the construction of a new commercial building, including foundation work, structural framing, exterior cladding, and interior finishes.',
+    heroImage: Kepykla1,
     gallery: [Kepykla1, Kepykla2, Kepykla3, Kepykla4, Kepykla5, Kepykla6, Kepykla7, Kepykla8, Kepykla9, Kepykla10, Kepykla11, Kepykla12, Kepykla13, Kepykla14, Kepykla15]
   },
   {
@@ -209,6 +429,9 @@ const projects = [
     status: 'Vykdomas',
     city: 'Klaipeda, Lietuva',
     year: 2023,
+    description:
+    'The Saules Butai Complex project involved the construction of a multi-unit residential building with modern amenities and sustainable design features.',
+    heroImage: saules1,
     gallery: [saules1, saules2, saules3, saules4, saules5, saules6, saules7, saules8]
   },
   {
@@ -217,6 +440,9 @@ const projects = [
     status: 'Baigtas',
     city: 'Palanga, Lietuva',
     year: 2022,
+    description:
+    'The Kunigiskes Renovacija project included the restoration and modernization of an existing residential building, with updates to the façade, interior finishes, and infrastructure.',
+    heroImage: Kunigiskes1,
     gallery: [Kunigiskes1, Kunigiskes2, Kunigiskes3, Kunigiskes4, Kunigiskes5, Kunigiskes6, Kunigiskes7, Kunigiskes8]
   },
   {
@@ -225,6 +451,9 @@ const projects = [
     status: 'Baigtas',
     city: 'Palanga, Lietuva',
     year: 2023,
+    description:
+    'The Kunigiskes Vaivorikstes g project involved the construction of a new residential building with modern amenities and sustainable design features.',
+    heroImage: Vaivorikstes1,
     gallery: [Vaivorikstes1, Vaivorikstes2, Vaivorikstes3, Vaivorikstes4, Vaivorikstes5, Vaivorikstes6, Vaivorikstes7, Vaivorikstes8, Vaivorikstes9, Vaivorikstes10, Vaivorikstes11, Vaivorikstes12, Vaivorikstes13, Vaivorikstes14, Vaivorikstes15, Vaivorikstes16, Vaivorikstes17, Vaivorikstes18, Vaivorikstes19]
   },
   {
@@ -233,6 +462,9 @@ const projects = [
     status: 'Baigtas',
     city: 'Palanga, Lietuva',
     year: 2023,
+    description:
+    'The Vilmiskes project involved the construction of a new residential building with modern amenities and sustainable design features.',
+    heroImage: Vilmiskes1,
     gallery: [Vilmiskes1, Vilmiskes2, Vilmiskes3, Vilmiskes4, Vilmiskes5, Vilmiskes7, Vilmiskes8, Vilmiskes9, Vilmiskes10, Vilmiskes11, Vilmiskes12, Vilmiskes13, Vilmiskes14]
   },
   {
@@ -241,6 +473,9 @@ const projects = [
     status: 'Baigtas',
     city: 'Gargždai, Lietuva',
     year: 2022,
+    description:
+    'The Pasakele Darzelis project involved the construction of a new childcare facility with modern amenities and sustainable design features.',
+    heroImage: Darzelis1,
     gallery: [Darzelis1, Darzelis2, Darzelis3, Darzelis4, Darzelis5, Darzelis6, Darzelis7, Darzelis8, Darzelis9, Darzelis10] 
   },
   {
@@ -249,6 +484,9 @@ const projects = [
     status: 'Baigtas',
     city: 'Anglija, UK',
     year: 2023,
+    description:
+    'The English Housing project involved the construction of a new residential building with modern amenities and sustainable design features.',
+    heroImage: English1,
     gallery: [English1, English2]
   },
   {
@@ -257,6 +495,9 @@ const projects = [
     status: 'Baigtas',
     city: 'Anglija, UK',
     year: 2023,
+    description:
+    'The Epping Nightclub project involved the construction of a new entertainment venue with modern amenities and sustainable design features.',
+    heroImage: Nightclub1,
     gallery: [Nightclub1, Nightclub2, Nightclub3, Nightclub4, Nightclub5, Nightclub6, Nightclub7, Nightclub8, Nightclub9] 
   },
   {
@@ -265,6 +506,9 @@ const projects = [
     status: 'Baigtas',
     city: 'Anglija, UK',
     year: 2023,
+    description:
+    'The Slough Penthouse project involved the construction of a new luxury residential building with modern amenities and sustainable design features.',
+    heroImage: Slough1,
     gallery: [Slough1, Slough2, Slough3, Slough4] 
   },
   {
@@ -273,6 +517,9 @@ const projects = [
     status: 'Baigtas',
     city: 'Anglija, UK',
     year: 2023,
+    description:
+    'The Village House project involved the construction of a new residential building with modern amenities and sustainable design features.',
+    heroImage: Village1,
     gallery: [Village1, Village2, Village3] 
   },
   {
@@ -281,13 +528,11 @@ const projects = [
     status: 'Baigtas',
     city: 'Darbenai, Lietuva',
     year: 2023,
+    description:
+    'The Palangos g project involved the construction of a new residential building with modern amenities and sustainable design features.',
+    heroImage: Darbenai1,
     gallery: [Darbenai1, Darbenai2, Darbenai3, Darbenai4, Darbenai5, Darbenai6, Darbenai7, Darbenai8, Darbenai9, Darbenai10]
   }
   
 ]
-
-const project = computed(() => {
-  const slug = String(route.params.slug)
-  return projects.find(p => p.slug === slug)
-})
 </script>
