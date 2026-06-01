@@ -3,6 +3,7 @@
     <Hero />
     <ProjectSection />
     <AboutSection />
+    <Footer />
   </div>
 </template>
 
@@ -10,4 +11,5 @@
 import Hero from '../components/Hero.vue'
 import ProjectSection from '../components/ProjectSection.vue'
 import AboutSection from '../components/AboutSection.vue'
+import Footer from '@/components/Footer.vue';
 </script>

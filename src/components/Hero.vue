@@ -1,25 +1,25 @@
 <template>
-  <section id="home" class="relative min-h-svh pt-28 pb-20 overflow-hidden">
+  <section id="home" class="relative min-h-svh overflow-hidden section-sm pt-0 md:pt-0">
 
-    <!-- Background -->
+    <!-- BACKGROUND -->
     <div class="absolute inset-0">
       <img
         src="../assets/branding/hero/firefly.jpg"
         class="w-full h-full object-cover object-center"
       />
-      <div class="absolute inset-0 bg-linear-to-t from-black/95 via-black/60 to-to-[#0a0a0a]"></div>
+
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/60 to-black/10"></div>
     </div>
 
-    <!-- CONTENT GRID LAYER -->
+    <!-- CONTENT -->
     <div class="relative container">
 
-      <div class="grid grid-cols-12 gap-6 min-h-screen items-center">
+      <div class="grid grid-cols-12 gap-6 min-h-[85svh] items-start md:items-center hero-center">
 
-        <!-- HERO COLUMN -->
-        <div class="col-span-12 lg:col-span-7">
+        <div class="col-span-12 lg:col-span-7 space-y-10 hero-top md:pt-0">
 
-          <!-- Since 2022 -->
-          <div class="font-condensed flex items-center gap-3 text-[#E5D8C3] tracking-[1px] md:tracking-[4px] text-[11px] md:text-sm mb-(--space-2)">
+          <!-- TOP LABEL -->
+          <div class="font-condensed flex items-center gap-3 text-[#E5D8C3] tracking-[1px] md:tracking-[4px] text-[11px] md:text-sm">
 
             <span class="w-10 md:w-16 h-px bg-[#E5D8C3]/80 shrink-0"></span>
 
@@ -32,7 +32,7 @@
           <!-- HEADLINE -->
           <h1
             class="font-condensed uppercase text-white leading-[0.9]"
-            style="font-weight: 900; font-size: clamp(3rem, 8.5vw, 8.5rem); letter-spacing: -0.02em;"
+            style="font-weight:900; font-size:clamp(3rem,8.5vw,8.5rem); letter-spacing:-0.02em;"
           >
             NUO PAMATU<br>
             <span class="text-[#38cdf5]">IKI RAKTO</span><br>
@@ -40,31 +40,29 @@
           </h1>
 
           <!-- DESCRIPTION -->
-          <p class="font-condensed max-w-2xl text-[1.1rem] md:text-xl text-[#E5E5E5] mt-8 mb-(--space-5) leading-relaxed">
-            UAB „Vestar Construction“ įgyvendina tikslius, mastelio ir architektūrinio aiškumo principus žymius komercinius, 
-            gyvenamuosius ir visuomeninius projektus apink Klaipėdos, Kretingos ir Palangos Rajonus.
+          <p class="font-condensed max-w-2xl text-[1.1rem] md:text-xl text-white/80 leading-relaxed">
+            UAB „Vestar Construction“ įgyvendina tikslius, mastelio ir architektūrinio aiškumo principus,
+            vykdydama komercinius, gyvenamuosius ir visuomeninius projektus Klaipėdos regione.
           </p>
 
           <!-- STATS -->
-          <StatsBar class="mb-(--space-3)" />
+          <div class="pt-2">
+            <StatsBar />
+          </div>
 
           <!-- BUTTONS -->
-          <div class="flex flex-wrap gap-4">
+          <div class="flex flex-wrap gap-4 pt-2">
 
             <button class="bg-[#38cdf5] hover:bg-[#2bb8df] px-12 py-5 font-semibold uppercase tracking-wide transition">
               View Projects
             </button>
 
-            <button
-              class="group relative overflow-hidden border border-white/20 px-10 py-5 font-semibold uppercase tracking-wide text-white transition-colors duration-300"
-            >
+            <button class="group relative overflow-hidden border border-white/20 px-10 py-5 font-semibold uppercase tracking-wide text-white">
               <span class="relative z-10 group-hover:text-black transition-colors duration-300">
                 Start a Project
               </span>
 
-              <span
-                class="absolute inset-0 bg-[#38cdf5] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"
-              ></span>
+              <span class="absolute inset-0 bg-[#38cdf5] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
             </button>
 
           </div>
@@ -75,31 +73,8 @@
     </div>
 
   </section>
-
-  <!-- HERO EXIT TRANSITION -->
-<!-- CONTINUATION LAYER (NOT SEPARATE VISUAL BLOCK) -->
-<div class="relative bg-[#0a0a0a]">
-
-  <!-- fade from hero into page background -->
-  <div class="h-24 md:h-32 bg-gradient-to-b from-black/0 to-[#0a0a0a]"></div>
-
-  <!-- structural divider -->
-  <div class="container">
-    <div class="h-px bg-white/10 w-full"></div>
-  </div>
-
-  <!-- label -->
-  <div class="container pt-6 pb-10">
-    <p class="text-white/30 uppercase tracking-[0.35em] text-xs">
-      APIE MUS • PROCESAS • PATIRTIS
-    </p>
-  </div>
-
-</div>
-
-<!-- ABOUT -->
-<AboutSection />
-
+  
+  <AboutSection />
 
 </template>
 

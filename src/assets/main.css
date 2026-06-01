@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 @theme {
-    --font-condensed: "Barlow Condensed", sans-serif;
+  --font-condensed: "Barlow Condensed", sans-serif;
 }
 
 /* =========================
@@ -12,39 +12,66 @@
   width: 100%;
   max-width: 1280px;
   margin-inline: auto;
-
   padding-inline: clamp(1rem, 4vw, 2rem);
 }
 
 /* =========================
-   GRID FOUNDATION
+   GRID 
 ========================= */
-
-/* global page rhythm control */
 :root {
-  --grid-columns: 12;
-  --grid-gap: 1.5rem;
-  --container: 1280px;
-  --gutter: clamp(1rem, 4vw, 2rem);
+  --navbar-h: 80px;
 
-  --space-1: 0.5rem;   /* 8px */
-  --space-2: 1rem;     /* 16px */
-  --space-3: 1.5rem;   /* 24px */
-  --space-4: 2rem;     /* 32px */
-  --space-5: 3rem;     /* 48px */
-  --space-6: 4rem;     /* 64px */
+  --section-y: clamp(5rem, 8vw, 9rem);
+  --section-y-sm: clamp(3rem, 5vw, 5rem);
+
+  --content-max: 1280px;
+
+  --text-muted: rgba(255,255,255,0.6);
+  --text-faint: rgba(255,255,255,0.35);
+
+  --accent: #38cdf5;
 }
 
-/* full layout consistency */
-html, body {
-  width: 100%;
-  overflow-x: clip;
+/* section helpers */
+.section {
+  padding-top: var(--section-y);
+  padding-bottom: var(--section-y);
+}
+
+.section-sm {
+  padding-top: var(--section-y-sm);
+  padding-bottom: var(--section-y-sm);
+}
+
+/* =========================
+   BASE LAYOUT
+========================= */
+
+html {
+  scroll-padding-top: var(--navbar-h);
   scroll-behavior: smooth;
 }
 
-/* debug tool */
+body {
+  width: 100%;
+  overflow-x: clip;
+  background-color: #0a0a0a;
+  color: white;
+}
+
+/* debug grid */
 .debug-grid {
   background-image: 
     linear-gradient(to right, rgba(255,0,0,0.05) 1px, transparent 1px);
   background-size: calc(100% / 12) 100%;
+}
+
+.hero-top {
+  padding-top: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .hero-center {
+    padding-top: 2rem;
+  }
 }

@@ -177,7 +177,7 @@
     <section class="container pb-24">
 
       <button
-        @click="$router.push('/')"
+        @click="$router.push('/#projects')"
         class="border border-[#00A8E8] px-6 py-3 uppercase tracking-[0.25em] text-xs text-[#00A8E8]
                hover:bg-[#00A8E8] hover:text-black transition"
       >
