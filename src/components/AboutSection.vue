@@ -117,7 +117,7 @@
             class="w-full h-full object-cover transition duration-700 md:duration-1000 hover:scale-105"
           />
 
-          <!-- overlays (unchanged) -->
+          <!-- overlays -->
           <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
           <div class="absolute inset-0 bg-[#0a0a0a]/30"></div>
           <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom,transparent_0%,rgba(0,0,0,0.4)_100%)]"></div>
