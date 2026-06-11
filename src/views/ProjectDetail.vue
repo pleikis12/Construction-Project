@@ -231,11 +231,19 @@ const prevImage = () => {
 const handleKey = (e: KeyboardEvent) => {
   if (activeIndex.value === null) return
 
-  if (e.key === 'Escape') closeImage()
-  if (e.key === 'ArrowRight') nextImage()
-  if (e.key === 'ArrowLeft') prevImage()
+  if (e.key === 'Escape') {
+    e.preventDefault()
+    closeImage()
+  }
+  if (e.key === 'ArrowRight' || e.key === 'Right') {
+    e.preventDefault()
+    nextImage()
+  }
+  if (e.key === 'ArrowLeft' || e.key === 'Left') {
+    e.preventDefault()
+    prevImage()
+  }
 }
-
 
 let touchStartX = 0
 

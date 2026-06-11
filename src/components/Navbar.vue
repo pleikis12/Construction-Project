@@ -28,10 +28,10 @@ watch(mobileMenuOpen, (open) => {
 
 <template>
   <nav
-    class="fixed top-0 w-full z-50 h-[var(--navbar-h)] transition-all duration-500"
+    class="fixed top-0 w-full z-50 h-[var(--navbar-h)] transition-all duration-500 border-b"
     :class="scrolled
-      ? 'bg-[#0F0F0F]/90 backdrop-blur-md shadow-lg'
-      : 'bg-[#0F0F0F]/70 backdrop-blur-sm'
+      ? 'bg-[#0F0F0F]/80 backdrop-blur-md border-white/5 shadow-lg'
+      : 'bg-transparent border-transparent'
     "
   >
     <div class="container h-full">
