@@ -1,11 +1,11 @@
 <template>
-  <section id="contact" class="py-24 bg-[#0a0a0a] text-white">
+  <section id="contact" class="py-24 bg-dark text-white">
     <div class="container grid grid-cols-1 lg:grid-cols-2 gap-16">
       
-      <div class="space-y-8">
+      <div class="space-y-8 opacity-0 animate-fade-in-up">
         <div class="flex items-center gap-4">
-          <div class="w-12 h-px bg-[#00A8E8]"></div>
-          <span class="text-[#00A8E8] text-xs tracking-[0.25em] uppercase font-bold">Susisiekite</span>
+          <div class="w-12 h-px bg-brand"></div>
+          <span class="text-brand text-xs tracking-[0.25em] uppercase font-bold">Susisiekite</span>
         </div>
         
         <h2 class="text-6xl font-condensed uppercase font-extrabold leading-[0.9]">Pradėkite savo<br/>projektą šiandien</h2>
@@ -45,7 +45,7 @@
         </div>
       </div>
 
-      <div class="bg-[#111] border border-white/5 p-8 md:p-10">
+      <div class="bg-charcoal/65 border border-white/10 p-8 md:p-10 opacity-0 animate-fade-in-up [animation-delay:0.2s]">
         <h3 class="text-xl font-bold uppercase mb-8">Projekto užklausos forma</h3>
 
         <div v-if="status === 'success'" class="h-[400px] flex flex-col justify-center items-center text-center">
@@ -57,22 +57,22 @@
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="space-y-2">
               <label class="text-[10px] text-white/40 uppercase tracking-[0.1em]">Pilnas Vardas *</label>
-              <input v-model="form.name" name="name" required class="w-full bg-[#1a1a1a] border border-white/10 p-3 text-sm focus:border-[#00A8E8] outline-none transition" />
+              <input v-model="form.name" name="name" required class="w-full bg-charcoal border border-white/10 p-3 text-sm focus:border-brand outline-none transition" />
             </div>
             <div class="space-y-2">
               <label class="text-[10px] text-white/40 uppercase tracking-[0.1em]">El. pašto adresas *</label>
-              <input v-model="form.email" name="email" type="email" required class="w-full bg-[#1a1a1a] border border-white/10 p-3 text-sm focus:border-[#00A8E8] outline-none transition" />
+              <input v-model="form.email" name="email" type="email" required class="w-full bg-charcoal border border-white/10 p-3 text-sm focus:border-brand outline-none transition" />
             </div>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="space-y-2">
               <label class="text-[10px] text-white/40 uppercase tracking-[0.1em]">Telefono nr.</label>
-              <input v-model="form.phone" name="phone" class="w-full bg-[#1a1a1a] border border-white/10 p-3 text-sm focus:border-[#00A8E8] outline-none transition" />
+              <input v-model="form.phone" name="phone" class="w-full bg-charcoal border border-white/10 p-3 text-sm focus:border-brand outline-none transition" />
             </div>
             <div class="space-y-2">
               <label class="text-[10px] text-white/40 uppercase tracking-[0.1em]">Projecto Tipas</label>
-              <select v-model="form.type" name="type" class="w-full bg-[#1a1a1a] border border-white/10 p-3 text-sm focus:border-[#00A8E8] outline-none transition text-white">
+              <select v-model="form.type" name="type" class="w-full bg-charcoal border border-white/10 p-3 text-sm focus:border-brand outline-none transition text-white">
                 <option value="" disabled selected>Pasirinkite...</option>
                 <option>Komercinis</option>
                 <option>Rekreacinis</option>
@@ -83,19 +83,19 @@
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="space-y-2 md:col-span-2">
               <label class="text-[10px] text-white/40 uppercase tracking-[0.1em]">Miestas / Vietove</label>
-              <input v-model="form.location" name="location" class="w-full bg-[#1a1a1a] border border-white/10 p-3 text-sm focus:border-[#00A8E8] outline-none transition" />
+              <input v-model="form.location" name="location" class="w-full bg-charcoal border border-white/10 p-3 text-sm focus:border-brand outline-none transition" />
             </div>
           </div>
 
           <div class="space-y-2">
             <label class="text-[10px] text-white/40 uppercase tracking-[0.1em]">Projekto Aprašymas *</label>
-            <textarea v-model="form.message" name="message" required rows="4" class="w-full bg-[#1a1a1a] border border-white/10 p-3 text-sm focus:border-[#00A8E8] outline-none transition resize-none"></textarea>
+            <textarea v-model="form.message" name="message" required rows="4" class="w-full bg-charcoal border border-white/10 p-3 text-sm focus:border-brand outline-none transition resize-none"></textarea>
           </div>
 
           <button 
             type="submit"
             :disabled="status === 'sending'"
-            class="w-full bg-[#F59E0B] text-black font-bold py-4 uppercase tracking-widest hover:bg-white transition"
+            class="w-full bg-brand text-black font-bold py-4 uppercase tracking-widest hover:bg-brand-hover transition active:scale-95"
           >
             {{ status === 'sending' ? 'Siunčiama...' : 'Siųsti užklausą' }}
           </button>

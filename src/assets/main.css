@@ -3,6 +3,25 @@
 
 @theme {
   --font-condensed: "Barlow Condensed", sans-serif;
+  --color-brand: #10b981;
+  --color-brand-hover: #059669;
+  --color-charcoal: #141618;
+  --color-dark: #0a0a0a;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1.3s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
 }
 
 /* =========================
@@ -68,6 +87,24 @@ body {
 
 .hero-top {
   padding-top: 2.5rem;
+}
+
+/* Auto fill override for dark mode */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  
+  -webkit-box-shadow: 0 0 0px 1000px #141618 inset !important;
+  
+  /* Keep the text color white */
+  -webkit-text-fill-color: white !important;
+  
+  /* Prevent the browser from changing the background color over time */
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 @media (min-width: 768px) {

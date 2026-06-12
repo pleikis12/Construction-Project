@@ -1,6 +1,5 @@
 <template>
-  <!-- Wrapper ensures the background is black even while loading[cite: 1, 2] -->
-  <div class="min-h-screen bg-[#0a0a0a]">
+  <div class="min-h-screen bg-dark">
     <section
       v-if="project"
       class="text-white"
@@ -12,7 +11,7 @@
           class="absolute inset-0 w-full h-full object-cover cursor-zoom-in"
           @click="openImage(0)"
         />
-        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/60 to-black/20"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-dark via-black/60 to-black/20"></div>
         <div class="relative z-10 container h-full flex flex-col justify-end pb-16">
           <div
             class="inline-flex items-center gap-2 mb-4 text-xs tracking-[0.25em] uppercase"
@@ -62,8 +61,8 @@
       <section v-if="project.description" class="container pb-16">
         <div class="max-w-4xl">
           <div class="flex items-center gap-3 mb-4">
-            <div class="w-8 h-px bg-[#00A8E8]" />
-            <span class="text-[#00A8E8] uppercase tracking-[0.25em] text-xs">
+            <div class="w-8 h-px bg-brand" />
+            <span class="text-brand uppercase tracking-[0.25em] text-xs">
               Projekto Aprašymas
             </span>
           </div>
@@ -107,7 +106,7 @@
               {{ activeIndex + 1 }} / {{ images.length }}
             </div>
             <button
-              class="absolute top-5 right-5 text-white text-2xl hover:text-[#00A8E8]"
+              class="absolute top-5 right-5 text-white text-2xl hover:text-brand"
               @click.stop="closeImage"
             >
               ✕
@@ -132,7 +131,7 @@
       <section class="container pb-24">
         <button
           @click="$router.push('/#projects')"
-          class="border border-[#00A8E8] px-6 py-3 uppercase tracking-[0.25em] text-xs text-[#00A8E8] hover:bg-[#00A8E8] hover:text-black transition"
+          class="border border-brand px-6 py-3 uppercase tracking-[0.25em] text-xs text-brand hover:bg-brand-hover hover:text-white transition"
         >
           ← Atgal į projektus
         </button>
@@ -144,7 +143,7 @@
       v-else
       class="min-h-screen flex flex-col items-center justify-center text-white gap-4"
     >
-      <div class="w-8 h-8 border-2 border-[#00A8E8] border-t-transparent rounded-full animate-spin"></div>
+      <div class="w-8 h-8 border-2 border-brand border-t-transparent rounded-full animate-spin"></div>
       <p class="text-white/40 uppercase tracking-widest text-xs">Kraunasi...</p>
     </section>
   </div>

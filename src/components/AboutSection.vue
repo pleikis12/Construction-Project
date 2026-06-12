@@ -2,13 +2,13 @@
   <section
     id="about"
     ref="aboutSection"
-    class="relative bg-[#111315] text-white py-20 md:py-28 overflow-hidden"
+    class="relative bg-dark text-white py-20 md:py-28 overflow-hidden"
     :style="sectionStyle"
   >
 
     <!-- BACKGROUND -->
     <div class="absolute inset-0">
-      <div class="absolute inset-0 bg-gradient-to-b from-[#141618] via-[#111315] to-[#0f1012]"></div>
+      <div class="absolute inset-0 bg-linear-to-b from-[#141618] via-[#111315] to-[#0f1012]"></div>
 
       <div class="absolute inset-0 opacity-[0.04]
         bg-[radial-gradient(circle_at_20%_10%,white,transparent_60%)]">
@@ -30,9 +30,9 @@
           >
 
             <div class="flex items-center gap-3 md:gap-4 mb-4">
-              <span class="w-8 md:w-12 h-px bg-[#38cdf5]"></span>
+              <span class="w-8 md:w-12 h-px bg-brand"></span>
 
-              <p class="text-[#38cdf5] uppercase tracking-[0.25em] md:tracking-[0.35em] text-[10px] md:text-xs">
+              <p class="text-brand uppercase tracking-[0.25em] md:tracking-[0.35em] text-[10px] md:text-xs">
                 Apie mus
               </p>
             </div>
@@ -74,10 +74,10 @@
         <!-- RIGHT (CERTIFICATE) -->
         <div class="col-span-12 lg:col-span-5">
 
-          <div class="w-full max-w-sm md:max-w-md mx-auto lg:mx-0">
+          <div class="w-full max-w-sm md:max-w-md mx-auto lg:ml-auto lg:mr-0">
 
             <div
-              class="border border-white/10 bg-[#141618]/40 overflow-hidden transition-all duration-700 delay-200"
+              class="border border-white/10 bg-dark/40 overflow-hidden transition-all duration-700 delay-200"
               :class="isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
             >
               <img
@@ -119,12 +119,12 @@
 
           <!-- overlays -->
           <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-          <div class="absolute inset-0 bg-[#0a0a0a]/30"></div>
+          ;<div class="absolute inset-0 bg-dark/30"></div>
           <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom,transparent_0%,rgba(0,0,0,0.4)_100%)]"></div>
 
           <div class="absolute bottom-5 md:bottom-10 left-5 md:left-10">
 
-            <p class="text-[#38cdf5] uppercase tracking-[0.3em] text-[10px] md:text-xs mb-2 md:mb-3">
+            <p class="text-brand uppercase tracking-[0.3em] text-[10px] md:text-xs mb-2 md:mb-3">
               VESTAR CONSTRUCTION
             </p>
 

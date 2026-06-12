@@ -114,7 +114,7 @@ onMounted(async () => {
   font-weight: 700;
   line-height: 1;
 
-  color: #38cdf5;
+  color: var(--color-brand);
   letter-spacing: -0.02em;
 }
 
@@ -126,7 +126,7 @@ onMounted(async () => {
   letter-spacing: 0.22em;
   text-transform: uppercase;
 
-  color: rgba(212, 197, 176, 0.75);
+  color: white;
 }
 
 /* PHONE */
