@@ -17,14 +17,14 @@
             <span class="text-[#00A8E8]">📞</span>
             <div class="flex flex-col">
               <span class="text-[10px] text-white/40 uppercase tracking-[0.2em] mb-0.5">Numeris</span>
-              <span class="text-white">+370 (212) 555-0187</span>
+              <span class="text-white">+370 (674) 23 383</span>
             </div>
           </div>
           <div class="flex items-center gap-4">
             <span class="text-[#00A8E8]">✉</span>
             <div class="flex flex-col">
               <span class="text-[10px] text-white/40 uppercase tracking-[0.2em] mb-0.5">Elektroninis paštas</span>
-              <span class="text-white">UABVESTAR@GMAIL.COM</span>
+              <span class="text-white">SAULIUSPLEIKYS@UABVESTAR.COM</span>
             </div>
           </div>
           <div class="flex items-center gap-4">
