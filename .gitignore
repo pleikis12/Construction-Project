@@ -43,3 +43,5 @@ playwright-report/
 e2e-results/
 e2e/vue.spec.ts
 e2e/tsconfig.json
+
+.env
